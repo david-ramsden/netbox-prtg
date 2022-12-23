@@ -83,7 +83,7 @@ X-PRTG-Template-Device | The ID of the device added to PRTG to be used as the te
 X-PRTG-Target-Group    | The ID of the group added to PRTG that devices will be created in.      |
 
 # Usage
-With everything configured, add a new device to NetBox. This alone will not create a new device in PRTG. The device in NetBox must be assigned a primary management address (note that only IPv4 is currently only supported). Once this has been done, a new device in PRTG will be created in the target group. The `PRTG ID` field of the device in NetBox will be updated with the corresponding ID. You may move the device in PRTG into any other group and make any other changes.
+With everything configured, add a new device to NetBox. This alone will not create a new device in PRTG. The device in NetBox must be assigned a primary management address (note that only IPv4 is currently supported). Once this has been done, a new device in PRTG will be created in the target group. The `PRTG ID` field of the device in NetBox will be updated with the corresponding ID. You may move the device in PRTG into any other group and make any other changes.
 
 If the primary management address is changed in NetBox, PRTG will be updated too. Similarly, if the device name in NetBox is changed, PRTG will also be updated.
 
