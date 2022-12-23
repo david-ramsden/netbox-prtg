@@ -53,7 +53,7 @@ switch ($json->{'model'}) {
 		if (empty($prtg_id) && !empty($primary_ip)) {
 			debug("No device PRTG ID - Adding device to PRTG!");
 			
-			// Duplicate device ID 55178 (NetBox PRTG template devce) in PRTG, in to group 55177 ("From NetBox" group).
+			// Duplicate device (NetBox PRTG template devce) in PRTG, in to target group.
 			// This will return the JSON formatted request to send to NetBox to update the NetBox device with it's PRTG device ID.
 			$payload = prtg_api("/api/duplicateobject.htm?id=" . get_request_header("X-PRTG-Template-Device") . "&name=" . $device_name . "&host=" . $primary_ip_nomask . "&targetid=" . get_request_header("X-PRTG-Target-Group"));
 			netbox_api($json->{'data'}->{'assigned_object'}->{'device'}->{'url'}, $payload);
