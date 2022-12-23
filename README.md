@@ -101,6 +101,7 @@ If a device is deleted from NetBox, it will not be deleted from PRTG. Instead, t
   * Set `X-Debug` to `true` in the NetBox webhook additional HTTP headers.
   * Ensure there's a file called `debug.txt` in the same directory as index.php for NetBox-PRTG Integration. The user running the web server process needs to be able t read and write this file.
   * Review the `debug.txt` file. Note that you can clear the file by requesting the NetBox-PRTG Integration script with `?cleardebug` as a query string, e.g. `https://my.server.com/api/netbox-prtg/?cleardebug`
+* Review web server's error log.
 * Still stuck?
   * Raise an Issue on GitHub.
   
