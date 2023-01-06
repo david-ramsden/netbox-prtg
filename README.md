@@ -15,11 +15,11 @@ This script will only ever make changes to devices in PRTG, e.g. it's a one-way 
 When a new device is added to PRTG, it is duplicated (cloned) from an existing device, known as the PRTG template device, into a pre-defined group, known as the target group.
 
 ## Requirements
-You will need a server running PHP and a web server such as Apache.
+You will need a web server such as Apache and PHP.
 
 Tested against:
 
-* NetBox v3.2.8
+* NetBox v3.2.8, v3.4.1
 * PRTG 22.1.75.1594
 
 Using:
@@ -72,15 +72,15 @@ To use debug, create a file in the netbox-prtg directory called `debug.txt` and 
 3. Create a new API token with `Write enabled`.
   
 ### NetBox-PRTG Configuration Options
-Option                 | Explanation
------------------------|-------------------------------------------------------------------------|
-X-Debug                | Either `true` or `false` to turn debug output on or off.                |
-X-NetBox-API-URL       | The URL of NetBox. Do not add a trailing slash.                         |
-X-NetBox-API-Auth      | The NetBox API token to use.                                            |
-X-PRTG-API-URL         | The URL of PRTG. Do not add a trailing slash.                           |
-X-PRTG-API-Auth        | The username and passhash to use, provided in HTTP query string format. |
-X-PRTG-Template-Device | The ID of the device added to PRTG to be used as the template.          |
-X-PRTG-Target-Group    | The ID of the group added to PRTG that devices will be created in.      |
+Option                 | Explanation                                                             | Mandatory  |
+-----------------------|-------------------------------------------------------------------------|------------|
+X-Debug                | Either `true` or `false` to turn debug output on or off.                | No         |
+X-NetBox-API-URL       | The URL of NetBox. Do not add a trailing slash.                         | Yes        |
+X-NetBox-API-Auth      | The NetBox API token to use.                                            | Yes        |
+X-PRTG-API-URL         | The URL of PRTG. Do not add a trailing slash.                           | Yes        |
+X-PRTG-API-Auth        | The username and passhash to use, provided in HTTP query string format. | Yes        |
+X-PRTG-Template-Device | The ID of the device added to PRTG to be used as the template.          | Yes        |
+X-PRTG-Target-Group    | The ID of the group added to PRTG that devices will be created in.      | Yes        |
 
 # Usage
 With everything configured, add a new device to NetBox. This alone will not create a new device in PRTG. The device in NetBox must be assigned a primary management address (note that only IPv4 is currently supported). Once this has been done, a new device in PRTG will be created in the target group. The `PRTG ID` field of the device in NetBox will be updated with the corresponding ID. You may move the device in PRTG into any other group and make any other changes.
